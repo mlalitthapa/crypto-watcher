@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 })
 
 // Routes
-app.get('/', _ => res.send('Welcome'))
+app.get('/', (req, res) => res.send('Welcome'))
 
 // Simulated Cron
 setInterval(() => {
