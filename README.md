@@ -1,6 +1,6 @@
 # crypto-watcher
 
-> A Vue.js project
+> A simple PWA project with Vue.js for crypto price watching
 
 ## Build Setup
 
