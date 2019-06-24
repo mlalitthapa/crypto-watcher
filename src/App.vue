@@ -1,59 +1,70 @@
 <template>
-  <div id="app">
-    <header>
-      <span>Vue.js PWA</span>
-    </header>
-    <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <hello></hello>
-    </main>
+  <div>
+    <intro></intro>
+    <div id="body">
+      <div id="current">
+        <current v-bind:currentCurrency="currentCurrency"></current>
+      </div>
+      <div id="previous">
+        <previous v-bind:previousCurrency="previousCurrency"></previous>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+  import Intro from './components/Intro.vue';
+  import Current from './components/Current.vue';
+  import Previous from './components/Previous.vue';
 
 export default {
   name: 'app',
-  components: {
-    Hello
+  components: {Intro, Current, Previous},
+  data() {
+    return {
+      currentCurrency: {BTC: '', ETH: '', LTC: ''},
+      previousCurrency: {
+        yesterday: {}, twoDays: {}, threeDays: {}, fourDays: {}, fiveDays: {}
+      }
+    }
+  },
+  methods: {
+    // Stub
+  },
+  created() {
+    // Stub
   }
 }
 </script>
 
 <style>
-body {
-  margin: 0;
-}
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-main {
-  text-align: center;
-  margin-top: 40px;
-}
-
-header {
-  margin: 0;
-  height: 56px;
-  padding: 0 16px 0 24px;
-  background-color: #35495E;
-  color: #ffffff;
-}
-
-header span {
-  display: block;
-  position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: .02em;
-  font-weight: 400;
-  box-sizing: border-box;
-  padding-top: 16px;
-}
+  @import url('https://fonts.googleapis.com/css?family=Lato');
+  * {
+    margin : 0px;
+    padding : 0px;
+    font-family: 'Lato', sans-serif;
+  }
+  body { height: 100vh; width: 100%; }
+  .row { display: flex; flex-wrap: wrap; }
+  h1 { font-size: 48px; }
+  a { color: #FFFFFF; text-decoration: none; }
+  a:hover { color: #FFFFFF; }
+  a:visited { color: #000000; }
+  .button {
+    margin: auto;
+    width: 200px;
+    height: 60px;
+    border: 2px solid #E36F55;
+    box-sizing: border-box;
+    border-radius: 30px;
+  }
+  #body {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 1.5em;
+    text-align: center;
+    color:rgb(0, 193, 131);
+  }
+  #current { padding: 2em 0em; }
+  #previous { padding: 2em 0em; }
 </style>
